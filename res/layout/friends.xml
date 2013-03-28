@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    android:orientation="vertical" android:id="@+id/FriendsRelativeLayout">
+
+
+	<LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_alignLeft="@+id/profileSeperator">
+    	<ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/friendText"
+        android:src="@drawable/default_photo" android:layout_marginLeft="10dip" android:layout_marginTop="10dip">
+    	</ImageView>
+
+    	<TextView
+        android:id="@+id/friendText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/profilePicture"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#800000" >
+    	</TextView>
+	</LinearLayout>
+
+    <ScrollView
+        android:id="@+id/friendsContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/profileSeperator"
+        android:layout_marginLeft="10dip" android:layout_above="@+id/addFriendSeperator">
+
+        <LinearLayout
+            android:id="@+id/friendsLayout"
+            android:layout_marginLeft="10dip"
+            android:orientation="vertical" android:layout_width="284dp" android:layout_height="wrap_content">
+        </LinearLayout>
+    </ScrollView>
+    <TextView android:background="#800000" android:layout_width="match_parent" android:text="sadf" android:layout_height="2dp" android:id="@+id/profileSeperator" android:layout_below="@+id/linearLayout1" android:layout_centerHorizontal="true" android:layout_marginTop="7dip"></TextView>
+    <LinearLayout android:id="@+id/addFriendLayout" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentLeft="true">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/friend_added" android:id="@+id/addFriendPicture" android:layout_marginLeft="10dip" android:layout_marginBottom="10dip"></ImageView>
+        <TextView android:layout_width="wrap_content" android:layout_marginLeft="10dip" android:textColor="#800000" android:text="Add a Friend" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/Test" android:layout_marginBottom="10dip"></TextView>
+    </LinearLayout>
+    <TextView android:background="#800000" android:layout_height="2dp" android:layout_width="match_parent" android:text="sadf" android:id="@+id/addFriendSeperator" android:layout_above="@+id/addFriendLayout" android:layout_alignParentLeft="true" android:layout_marginTop="7dip" android:layout_marginBottom="7dip"></TextView>
+
+    
+
+</RelativeLayout>

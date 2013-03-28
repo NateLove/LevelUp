@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/accounts"
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:text="Twitter Account"
+        android:textSize="20dip" android:paddingTop="10dip" android:layout_gravity="center_vertical" android:layout_height="wrap_content" android:minHeight="50dip"/>
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" android:paddingBottom="4dip"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:paddingTop="10dip">
+
+        <TextView
+            android:id="@+id/autoFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1.04"
+            android:clickable="true"
+            android:text="Automatically share to Facebook"
+            android:textSize="20dip" android:layout_marginBottom="10dip"/>
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:paddingTop="10dip">
+
+        <TextView
+            android:id="@+id/autoTwitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:text="Automatically share to Twitter"
+            android:textSize="20dip" />
+
+        <CheckBox
+            android:id="@+id/twitterBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:clickable="false"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:paddingTop="10dip"
+        android:text="Color Settings"
+        android:textSize="20dip" android:minHeight="50dip"/>
+    <TextView android:layout_width="match_parent" android:background="#FFFFFF" android:layout_height="1dp" android:id="@+id/TextView03"></TextView>
+    <TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/disclaimer" android:text="Disclaimer" android:clickable="true" android:textSize="20dip" android:paddingTop="10dip" android:minHeight="50dip"></TextView>
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+10
+
+dir
+4888
+https://vtnetapps.googlecode.com/svn/trunk/assignments/final_projects/LevelUp/res
+https://vtnetapps.googlecode.com/svn
+
+
+
+2011-12-09T20:11:37.043289Z
+4887
+kdausin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+13dd798f-c9a9-0d3a-1410-a4e436c6fec4
+
+drawable-hdpi
+dir
+
+drawable-ldpi
+dir
+
+drawable-mdpi
+dir
+
+layout
+dir
+
+menu
+dir
+
+values
+dir
+
+xml
+dir
+

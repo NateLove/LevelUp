@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/4888/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs
+END
+GamesActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/5021/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/GamesActivity.java
+END
+AppListAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/4753/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/AppListAdapter.java
+END
+AddFriendActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/4580/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/AddFriendActivity.java
+END
+TabsActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/5022/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/TabsActivity.java
+END
+PromotedGamesActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/5022/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/PromotedGamesActivity.java
+END
+AsyncGetFriends.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4006/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/AsyncGetFriends.java
+END
+SharingPreferencesActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/4548/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/SharingPreferencesActivity.java
+END
+AsyncRetrieveGames.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/4006/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/AsyncRetrieveGames.java
+END
+AsyncGetPackages.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/4006/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/AsyncGetPackages.java
+END
+XMLParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/4572/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/XMLParser.java
+END
+FriendsActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/4909/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/FriendsActivity.java
+END
+AddGameActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/5019/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/AddGameActivity.java
+END
+App.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/5019/trunk/assignments/final_projects/LevelUp/src/com/redevs/levelup/tabs/App.java
+END

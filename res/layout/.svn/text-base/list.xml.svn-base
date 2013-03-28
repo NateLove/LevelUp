@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" android:id="@+id/gameLayout">
+
+    <LinearLayout
+        android:id="@+id/gameTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#ffffff" >
+
+        <TextView
+            android:id="@+id/gameTitle"
+            android:layout_width="281dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:background="#FFFFFF"
+            android:text="Games"
+            android:textColor="#800000"
+            android:textSize="25dip" android:layout_marginTop="10dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right|center_vertical" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:text="TextView" android:background="#800000"/>
+
+    <ListView
+        android:id="@+id/appslist"
+        android:layout_width="fill_parent"
+        android:layout_height="430dp"
+        android:layout_weight="0.27"
+        android:background="#FFFFFF" />
+
+</LinearLayout>

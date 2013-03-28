@@ -1,0 +1,295 @@
+package com.redevs.levelup.tabs;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.ArrayList;
+import org.apache.http.HttpResponse;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import com.redevs.levelup.R;
+import com.redevs.levelup.async.HttpCallback;
+import com.redevs.levelup.async.HttpUtils;
+import com.redevs.levelup.global.Globals;
+
+
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class PromotedGamesActivity extends Activity {
+
+
+	private static TextView[] mAppList;
+	private static TextView mView;
+	private static LinearLayout mLayout;
+	private static ArrayList<App> mTheApps; 
+
+
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.promoted_games);
+
+		mLayout = (LinearLayout) findViewById(R.id.mainLayout);
+		mLayout.setBackgroundColor(Globals.backgroundColor);
+		mLayout = (LinearLayout) findViewById(R.id.Title);
+		mLayout.setBackgroundColor(Globals.backgroundColor);
+		mView = (TextView) findViewById(R.id.suggestedGames);
+		mView.setBackgroundColor(Globals.backgroundColor);
+		mView.setTextColor(Globals.textColor);
+		mView = (TextView) findViewById(R.id.divider);
+		mView.setBackgroundColor(Globals.textColor);
+
+
+		mAppList = new TextView[10];
+
+		mAppList[0] = (TextView) findViewById(R.id.app1);
+		mAppList[1] = (TextView) findViewById(R.id.app2);
+		mAppList[2] = (TextView) findViewById(R.id.app3);
+		mAppList[3] = (TextView) findViewById(R.id.app4);
+		mAppList[4] = (TextView) findViewById(R.id.app5);
+		mAppList[5] = (TextView) findViewById(R.id.app6);
+		mAppList[6] = (TextView) findViewById(R.id.app7);
+		mAppList[7] = (TextView) findViewById(R.id.app8);
+		mAppList[8] = (TextView) findViewById(R.id.app9);
+		mAppList[9] = (TextView) findViewById(R.id.app10);
+
+
+
+		mTheApps = new ArrayList<App>();
+		for(int i = 0; i < 10; i++)
+		{
+			mAppList[i].setTextColor(Globals.textColor);
+			mAppList[i].setBackgroundColor(Globals.backgroundColor);
+			mAppList[i].setTextSize(20);
+			mAppList[i].setText("");
+
+		}
+
+
+		HttpUtils.get().doGet("http://www.levelupredevs.appspot.com/promtedpackages",  new HttpCallback() {
+
+			@Override
+			public void onResponse(HttpResponse resp) {
+				// TODO Auto-generated method stub
+				PrintXml printer = new PrintXml();
+
+				printer.execute(resp);
+
+
+			}
+
+			@Override
+			public void onError(Exception e) {
+				// TODO Auto-generated method stub
+
+			}
+
+		});
+		//		String pack[] = {"Angry Birds-com.rovio.angrybirds", "Words With Friends-com.zynga.words", "Uno Free-com.gameloft.android.ANMP.GloftUFHM" ,"Fruit Ninja Free-com.halfbrick.fruitninjafree", "Virtual Table Tennis 3d-com.clapfootgames.vtt3dfree", "Shoot Bubble Deluxe-com.shootbubble.bubbledexlue", "Minecraft Pocket Edition-com.mojang.minecraftpe", "Apparatus-com.bithack.apparatus", "Jelly Defense-pl.idreams.jellydefense", "Asphault 6-com.gameloft.android.ANMP.GloftA6HP"};
+		//
+		//
+		//		for(int i = 0; i < pack.length; i++)
+		//		{
+		//			Map<String, String> args_ = new HashMap<String, String>();
+		//			args_.put("app", pack[i]);
+		//
+		//
+		//
+		//			HttpUtils.get().doPost("http://www.levelupredevs.appspot.com/promtedpackages", args_, new HttpCallback() {
+		//
+		//				@Override
+		//				public void onResponse(HttpResponse resp) {
+		//					// TODO Auto-generated method stub
+		//					Log.i("PROMOTE", "winning");
+		//				}
+		//
+		//				@Override
+		//				public void onError(Exception e) {
+		//					// TODO Auto-generated method stub
+		//					Log.e("DFASDFASDFASDFASDFASDF", "LIES" + e.getMessage());
+		//
+		//				}
+		//			});
+		//
+		//
+		//		}
+
+
+
+
+
+
+	}
+
+
+
+	class PrintXml extends AsyncTask<HttpResponse, Void, ArrayList<App>>{
+
+
+
+		@Override
+		protected ArrayList<App> doInBackground(HttpResponse... params) {
+			// TODO Auto-generated method stub
+			ArrayList<App> data = null;
+			try {
+				data = printXml(HttpUtils.get().responseToString(params[0]));
+
+			} catch (XmlPullParserException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return data;
+
+		}
+
+		@Override
+		protected void onPostExecute(ArrayList<App> result) {
+			for(int i = 0; i < 10; i++)
+			{
+				mAppList[i].setTextColor(Globals.textColor);
+				mAppList[i].setBackgroundColor(Globals.backgroundColor);
+				mAppList[i].setTextSize(20);
+				mAppList[i].setText(mTheApps.get(i).getTitle());
+				final int index = i;
+				mAppList[i].setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						v.setBackgroundColor(Globals.textColor);
+
+						Intent intent = new Intent(Intent.ACTION_VIEW);
+						intent.setData(Uri.parse("market://details?id=" + mTheApps.get(index).getPackageName()));
+						startActivity(intent);
+					}
+				});
+			}
+
+
+		}
+
+
+		public ArrayList<App> printXml(String xml) throws XmlPullParserException, IOException, InterruptedException
+		{
+
+
+			//wait();
+			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+			factory.setNamespaceAware(true);
+			XmlPullParser xpp = factory.newPullParser();
+
+
+			xpp.setInput( new StringReader ( xml ) );
+			int eventType = xpp.getEventType();
+
+
+
+
+			//while(eventType != XmlPullParser.END_DOCUMENT){
+			mTheApps.clear();
+			while(eventType != XmlPullParser.END_DOCUMENT){
+
+				if(eventType == XmlPullParser.START_DOCUMENT) {
+
+					//theView.setText("");//Start document");
+				} else if(eventType == XmlPullParser.START_TAG) {
+
+					String name = xpp.getName();
+					if(name.equalsIgnoreCase("name"))
+					{
+
+						//	Log.e("WOOOOOOOOHOOOOOOOOO", "yep");//xpp.getText());
+						xpp.next();
+						//temp += xpp.getText() + "\n";
+						//Log.e("WOOOOOOOOHOOOOOOOOO", xpp.getText());
+						App app = new App();
+						app.setTitle(xpp.getText().split("-")[0]);
+						app.setPackageName(xpp.getText().split("-")[1]);
+						mTheApps.add(app);
+
+
+					}
+
+
+
+				}
+				eventType = xpp.next();
+			}
+			return mTheApps;
+
+
+
+
+
+		}
+
+
+	}
+	@Override 
+	public void onResume()
+	{
+		super.onResume();
+		
+		mLayout = (LinearLayout) findViewById(R.id.mainLayout);
+		mLayout.setBackgroundColor(Globals.backgroundColor);
+		mLayout = (LinearLayout) findViewById(R.id.Title);
+		mLayout.setBackgroundColor(Globals.backgroundColor);
+		mView = (TextView) findViewById(R.id.suggestedGames);
+		mView.setBackgroundColor(Globals.backgroundColor);
+		mView.setTextColor(Globals.textColor);
+		mView = (TextView) findViewById(R.id.divider);
+		mView.setBackgroundColor(Globals.textColor);
+
+
+		mAppList = new TextView[10];
+
+		mAppList[0] = (TextView) findViewById(R.id.app1);
+		mAppList[1] = (TextView) findViewById(R.id.app2);
+		mAppList[2] = (TextView) findViewById(R.id.app3);
+		mAppList[3] = (TextView) findViewById(R.id.app4);
+		mAppList[4] = (TextView) findViewById(R.id.app5);
+		mAppList[5] = (TextView) findViewById(R.id.app6);
+		mAppList[6] = (TextView) findViewById(R.id.app7);
+		mAppList[7] = (TextView) findViewById(R.id.app8);
+		mAppList[8] = (TextView) findViewById(R.id.app9);
+		mAppList[9] = (TextView) findViewById(R.id.app10);
+		for(int i = 0; i < mAppList.length; i++)
+		{
+			
+			mAppList[i].setTextColor(Globals.textColor);
+			mAppList[i].setBackgroundColor(Globals.backgroundColor);
+			mAppList[i].setTextSize(20);
+			if(mTheApps.size() >= i)
+				mAppList[i].setText(mTheApps.get(i).getTitle());
+			final int index = i;
+			mAppList[i].setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					v.setBackgroundColor(Globals.textColor);
+
+					Intent intent = new Intent(Intent.ACTION_VIEW);
+					intent.setData(Uri.parse("market://details?id=" + mTheApps.get(index).getPackageName()));
+					startActivity(intent);
+				}
+			});
+		}
+	}
+
+}
